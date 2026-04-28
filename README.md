@@ -1,5 +1,8 @@
 # TEC_CMU
-Here is the process to read TEC data from matlab
+Here is the process to read TEC data from MATLAB
+
+:triangular_flag_on_post: This example only runs one file for now—please wait for an update. :zzz: :sleeping::sleeping:
+
 1. main program is "main_teccal_30.m" to get file.mat💡
 
 
