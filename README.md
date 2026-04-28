@@ -1,23 +1,16 @@
 # :eyes:  Getting Started
-
+```bash id="c0v2r9"
 -- If you want to work on the terminal or Visual Studio 
-
 git clone git clone https://github.com/Tatphicha/TEC_CMU.git
-
 cd TEC_CMU
 
 :exclamation: Please work on **dev** branch :exclamation:
-
-
 -- To makes changes:
-
 git add .
-
 git commit -m "update feature"
-
 -- To upload to github
-
 git push
+```
 
 # :zap: TEC_CMU
 :triangular_flag_on_post: This example only runs one file for now—please wait for an update. :zzz: :sleeping::sleeping:
