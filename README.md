@@ -17,7 +17,7 @@ git commit -m "update feature"
 
 git push
 
-# TEC_CMU
+# :zap: TEC_CMU
 :triangular_flag_on_post: This example only runs one file for now—please wait for an update. :zzz: :sleeping::sleeping:
 
 Here are the steps to read TEC data from MATLAB:
