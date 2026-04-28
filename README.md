@@ -13,4 +13,4 @@ Here is the process to read TEC data from matlab
 python/Example plot from_JB_CM013160.jpg
 
 ![alt text]((https://github.com/Tatphicha/TEC_CMU/main/python/Example plot from_JB_CM013160.jpg
-?raw=true
+?raw=true)
