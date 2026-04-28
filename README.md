@@ -1,11 +1,12 @@
 # :eyes:  Getting Started
-```bash id="c0v2r9"
 -- If you want to work on the terminal or Visual Studio 
+```bash id="c0v2r9"
 git clone git clone https://github.com/Tatphicha/TEC_CMU.git
 cd TEC_CMU
-
+```
 :exclamation: Please work on **dev** branch :exclamation:
 -- To makes changes:
+```bash id="c0v2r9"
 git add .
 git commit -m "update feature"
 -- To upload to github
