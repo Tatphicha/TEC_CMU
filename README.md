@@ -5,11 +5,14 @@ git clone git clone https://github.com/Tatphicha/TEC_CMU.git
 cd TEC_CMU
 ```
 :exclamation: Please work on **dev** branch :exclamation:
+
 -- To makes changes:
 ```bash id="c0v2r9"
 git add .
 git commit -m "update feature"
+```
 -- To upload to github
+```bash id="c0v2r9"
 git push
 ```
 
