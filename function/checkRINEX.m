@@ -38,7 +38,7 @@ for st = 1:length(fileR_ofile)
         rcvstatus(st,4) = {0};
         disp(['No file at ' station_name ' doy ' doy])
     end
-    if length(fileR) ==1
+    if isscalar(fileR)
         rcvstatus(st,2) = {fileR(1).name};
         rcvstatus(st,3) = {nan};
         rcvstatus(st,4) = {1};

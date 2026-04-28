@@ -9,8 +9,7 @@
 %       dcb   - satellite DCB
 %       R_path   - RINEX folder path
 %       S_path   - results folder path
-
-function calstat = rnx2tec30(rnxstat,dates,dcb,R_path,S_path,outname)
+function calstat = rnx2tec30(rnxstat,dates,dcb,R_path,S_path)
 
 
 [yr,doy] = find_doy(dates);
@@ -97,7 +96,7 @@ for st = 1:size(rnxstat,1)
     rawPRN      = char(uintA');
     gnsssys     = string(rawPRN(:,1));  % PRN
     gnssprn     = cellstr(string(rawPRN(:,2:3)));
-    gnssprn     = str2double(gnssprn)'; % satellite constellation
+    gnssprn     = str2doubleq(gnssprn)'; % satellite constellation
 
     %% extract Frequency, P, L, (D and S) data
     freq = reshape([obs_data.freq],[40,length(obs_data)])'; %
@@ -263,7 +262,7 @@ for st = 1:size(rnxstat,1)
         stec    = outlinecorr(stec_r);
         vtec    = outlinecorr(vtec_r);
         % Using zero adjust TEC (Minimum TEC is Zero)
-        tec_min      =  min(stec,[],"all","omitnan") %min(min(stec));
+        tec_min      =  min(stec,[],"all");
         stec         =  stec  + tec_min;
         vtec         =  vtec  + tec_min;
 
@@ -308,9 +307,7 @@ for st = 1:size(rnxstat,1)
     eval([station_name '.z_rcvpos   = refpos;'])
     if ~isempty([S_path year]);mkdir([S_path year]);end
     if ~isempty([S_path year '\' doy]);mkdir([S_path year '\' doy]);end
-    %filename = [S_path year '\' doy '\TECROTI_' doy '_' year month dt '_' station_name '.mat'];
-    %filename = [S_path outname '.mat'];
-    filename = [S_path year '\' doy '\' outname '.mat'];
+    filename = [S_path year '\' doy '\TECROTI_' doy '_' year month dt '_' station_name '.mat'];
     save(filename,station_name)
     disp(['Complete to Calculate TEC at ' station_name ' station'])
     calstat{st,1} = station_name;

@@ -34,8 +34,8 @@ for loop=0:5
         %=========== convert to VTEC
         VTEC_no_sat_dcb  = (short_stec - Br(bri)).*short_sf;
         %=========== determine standard deviation
-        VTEC_std           = std(VTEC_no_sat_dcb,1,2,"omitnan")'; %std(VTEC_no_sat_dcb');
-        std_vtec(bri)      = sum(VTEC_std,2,"omitnan")'; %sum(VTEC_std')
+        VTEC_std           = std(VTEC_no_sat_dcb',"omitnan");
+        std_vtec(bri)      = sum(VTEC_std',"omitnan");
     end
     %========== find minimum value
     [std_vtec,Br] = min(std_vtec(:));
