@@ -1,12 +1,18 @@
 :eyes: # Getting Started
 
 git clone git clone https://github.com/Tatphicha/TEC_CMU.git
+
 cd TEC_CMU
+
 :exclamation: Please work on **dev** branch :exclamation:
 -- To makes changes:
+
 git add .
+
 git commit -m "update feature"
+
 -- To upload to github
+
 git push
 
 # TEC_CMU
