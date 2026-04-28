@@ -6,8 +6,9 @@ cd TEC_CMU
 ```
 :exclamation: Please work on **dev** branch :exclamation:
 
--- To makes changes:
+-- To makes changes: switches to dev branch
 ```bash id="c0v2r9"
+git checkout dev
 git add .
 git commit -m "update feature"
 ```
