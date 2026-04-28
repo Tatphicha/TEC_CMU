@@ -4,6 +4,8 @@ Here is the process to read TEC data from matlab
 
 
 👉 change outname (ex "CM013160"), stations, and p_path as your directory the you will get matfile in **Results** folder.
+
+:boom::boom:  Don’t forget to change **p_path** this to your directory path. :boom::boom:
   
 👉 To test the program, please download the RINEX file from https://drive.google.com/drive/folders/13-18mmAL4U4alot1mx9xbqvDfGlgyGbc?usp=sharing to folder RINEX
 
