@@ -1,3 +1,14 @@
+:eyes: # Getting Started
+
+git clone git clone https://github.com/Tatphicha/TEC_CMU.git
+cd TEC_CMU
+:exclamation: Please work on **dev** branch :exclamation:
+-- To makes changes:
+git add .
+git commit -m "update feature"
+-- To upload to github
+git push
+
 # TEC_CMU
 :triangular_flag_on_post: This example only runs one file for now—please wait for an update. :zzz: :sleeping::sleeping:
 
