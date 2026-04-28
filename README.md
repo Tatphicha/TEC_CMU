@@ -38,3 +38,6 @@ Here are the steps to read TEC data from MATLAB:
 <img src="python/Example_plot_from_JB_CM013160.jpg" width="600">
 
 
+## 📜 License
+
+© 2026 CM01 | Tatpicha n JumboAekawit
