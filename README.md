@@ -12,4 +12,4 @@ Here is the process to read TEC data from matlab
 3. plot data from csv
 python/Example plot from_JB_CM013160.jpg
 
-![My Plot](python/Example plot from_JB_CM013160.jpg.png)
+![My Plot](python/Example_plot_from_JB_CM013160.jpg.png)
