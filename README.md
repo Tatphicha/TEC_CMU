@@ -1,4 +1,4 @@
-:eyes: # Getting Started
+# :eyes:  Getting Started
 
 -- If you want to work on the terminal or Visual Studio 
 
