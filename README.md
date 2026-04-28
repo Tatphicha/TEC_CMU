@@ -1,5 +1,7 @@
 :eyes: # Getting Started
 
+-- If you want to work on the terminal or Visual Studio 
+
 git clone git clone https://github.com/Tatphicha/TEC_CMU.git
 
 cd TEC_CMU
