@@ -9,8 +9,8 @@ Here is the process to read TEC data from matlab
 
 
 2. "Run **mat2dataframe.p**y in the Python folder to get file.csv. [-- MATLAB (**convertmat2csv.m**) also works!)]"
-3. plot data from csv
-python/Example plot from_JB_CM013160.jpg
+3. plot data from csv (see the examplr plot for CM013160 from P'Jumbo) 
 
+<img src="images/figure.png" width="400">
 ![My Plot](python/Example_plot_from_JB_CM013160.jpg)
 
