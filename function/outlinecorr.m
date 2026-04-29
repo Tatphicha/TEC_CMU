@@ -2,7 +2,7 @@ function STEC_rm_ol= outlinecorr(STEC)
 % Remove Outlinier of STEC
 
 STECo = STEC';
-STEC_m = median(STECo,1,"omitnan")';
+STEC_m = median(STECo,1)';
 
 % set bound
 bound = 50; % TECu
@@ -10,7 +10,7 @@ for pp = 1:length(STEC(1,:))
     [val,~] = find(~isnan(STEC(:,pp)));
     z = find(diff(val)>=3600); % 1hr
         if isempty(z) 
-            if abs(median(STEC(:,pp)-STEC_m,"omitnan"))>bound
+            if abs(median(STEC(:,pp)-STEC_m))>bound
                 STEC(:,pp)=nan;
             end
             continue

@@ -17,7 +17,7 @@ for PRN = PRNall
     STEC          = STECl(index,PRN);                  
     STEC_ref      = STECl(index,PRN);
     elev          = Elevation(index,PRN);
-    gap_bound     = nanstd(diff(STEC)); % estimate gap bound to define as cycle-slip
+    gap_bound     = std(diff(STEC),"omitnan"); % estimate gap bound to define as cycle-slip
     if gap_bound <= 2 % min gap 1 TECu
         gap_bound = 1*(min(diff(T)));
     end
@@ -62,7 +62,7 @@ for PRN = PRNall
             STEC_g = STEC(time_gap(iii)+1:time_gap(iii+1));                 % group STEC
             % 2.2 connect the missing data
             slip1_g      = find(isnan(STEC_g));                             % Data missing (NaN)
-            if ~isempty(slip1_g) && nansum(STEC_g) ~= 0
+            if ~isempty(slip1_g) && sum(STEC_g,1,"omitnan") ~= 0
                 for i = 1:length(slip1_g)                                   % Correct data
                     try
                         STEC_g(slip1_g(i)) = STEC_g(slip1_g(i)-1);
@@ -87,7 +87,7 @@ for PRN = PRNall
         end
     end
     %% Levelling to highest elevation angle
-    [~,ref_index] = nanmax(elev);                                            % Find highest elevation angle
+    [~,ref_index] = max(elev);                                            % Find highest elevation angle
     STEC = STEC + (STEC_ref(ref_index)-STEC(ref_index));                     % Levelling the STEC to the STEC at highest elevation angle
     STEC_new(index,PRN) = STEC;
 end

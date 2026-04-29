@@ -52,7 +52,7 @@ try
         % scatter(UTCtime(idx,:)/3600,ipplt(idx,:),20,obsroti(idx,:),'filled')   % Draw yellow and red 
         colorbar;
         % clim([0 (fix(nanmax(nanmax(TEC)))/5)+1)*5]) % axis
-        caxis([0 1]) % axis
+        clim([0 1]) % axis
 
         colormap(cmap_rotikeogram);
     end
@@ -61,7 +61,7 @@ try
         scatter(UTCtime(idx,:)/3600,ipplt(idx,:),20,obsroti(idx,:),'filled','Marker','s')   % Draw yellow and red 
         colorbar;
         % clim([0 (fix(nanmax(nanmax(TEC)))/5)+1)*5]) % axis
-        caxis([0 1]) % axis
+        clim([0 1]) % axis
         
         colormap(cmap_rotikeogram);
     end
@@ -91,7 +91,7 @@ try
         % scatter(UTCtime(idx,:)/3600,ippln(idx,:),50,obsroti(idx,:),'filled')   % Draw yellow and red 
         colorbar;
         % clim([0 (fix(nanmax(nanmax(TEC)))/5)+1)*5]) % axis
-        caxis([0 1]) % axis
+        clim([0 1]) % axis
 
         colormap(cmap_rotikeogram);
     end
@@ -100,7 +100,7 @@ try
         scatter(UTCtime(idx,:)/3600,ippln(idx,:),20,obsroti(idx,:),'filled','Marker','s')   % Draw yellow and red 
         colorbar;
         % clim([0 (fix(nanmax(nanmax(TEC)))/5)+1)*5]) % axis
-        caxis([0 1]) % axis
+        clim([0 1]) % axis
         
         colormap(cmap_rotikeogram);
     end

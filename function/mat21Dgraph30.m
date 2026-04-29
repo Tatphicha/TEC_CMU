@@ -1,4 +1,4 @@
-function mat21Dgraph30(d,stationlists,matfilename,S_path,F_path)
+function mat21Dgraph30(d,stationlists,S_path,F_path)
 %% 1-D TEC and ROTI plotting
 % Plot TEC and ROTI value from savepath folder
 
@@ -27,15 +27,14 @@ for st = 1:length(stationlists)
         %% load file
         stname = stationlists{st};
         try
-            %s = dir([S_path year '\' doy '\*' stname '.mat']);
-            %load([S_path year '\' doy '\' s.name]);
-            %eval(['c_station = ' stname ';'])
-            load([S_path year '\' doy '\' matfilename '.mat']);
+            s = dir([S_path year '\' doy '\*' stname '.mat']);
+            load([S_path year '\' doy '\' s.name])
+            eval(['c_station = ' stname ';'])
         catch
-            disp(['No file at ' matfilename])
+            disp(['No file at ' stname])
             continue
         end
-        sys = fieldnames(stname);
+        sys = fieldnames(c_station);
         GNSS_STEC = [];
         GNSS_VTEC = [];
         GNSS_ROTI = [];
@@ -65,8 +64,8 @@ for st = 1:length(stationlists)
             % stt = min(min(ind))-1;
             % stp = max(max(ind));
             % Time_ref = (stt:stp)/3600;                    %   Time rate 1 second
-            Time_ref = max(sod,[],2,"omitnan")'/3600;
-            Time_ref_median = max(sod(1:30:end,:),[],2,"omitnan")'/3600;     %   Time rate 30 second
+            Time_ref = max(sod')/3600;
+            Time_ref_median = max(sod(1:30:end,:)')/3600;     %   Time rate 30 second
             % Time_ref_median = (0:2879)/120;
             % check visible satellites
             for tprn = 1:size(STEC,1)
@@ -83,12 +82,11 @@ for st = 1:length(stationlists)
             if eachplot ==1
                 
                 % median VTEC
-                VTEC_M = median(VTEC,2,"omitnan"); % nanmedian(VTEC',1)';
-                % **** VTECR = nan(length(Time_ref_median)-1)
+                VTEC_M = median(VTEC',1)';
                 for h = 1:length(Time_ref_median)-1
                     samp = 30;
-                    VTECR2(:,h+1) = median(VTEC_M(samp*(h-1)+1:samp*h,1),1,"omitnan"); %VTECR2(:,h+1) = nanmedian(VTEC_M(samp*(h-1)+1:samp*h,1));
-                    VTECR2(:,1)   = median(VTEC_M(1,1),1,"omitnan");
+                    VTECR2(:,h+1) = median(VTEC_M(samp*(h-1)+1:samp*h,1));
+                    VTECR2(:,1)   = median(VTEC_M(1,1));
                 end
                 % VTECR = smooth(Time_ref_median,VTECR2,0.5,'rloess');
                 VTECR = VTECR2;
@@ -139,13 +137,13 @@ for st = 1:length(stationlists)
             end
         end
         %% GNSS plot
-        Time_ref        = max(GNSS_SOD',[],"omitnan")/3600;
-        Time_ref_median = max(GNSS_SOD(1:30:end,:)',[],"omitnan")/3600;     %   Time rate 30 second
-        VTEC_MG = median(GNSS_VTEC,2,"omitnan");
+        Time_ref        = max(GNSS_SOD')/3600;
+        Time_ref_median = max(GNSS_SOD(1:30:end,:)')/3600;     %   Time rate 30 second
+        VTEC_MG = median(GNSS_VTEC',1)';
         for h = 1:length(Time_ref_median)-1
             samp = 30;
-            VTECR2(:,h+1) = median(VTEC_MG(samp*(h-1)+1:samp*h,1),1,"omitnan");
-            VTECR2(:,1)   = median(VTEC_MG(1,1),1,"omitnan");
+            VTECR2(:,h+1) = median(VTEC_MG(samp*(h-1)+1:samp*h,1));
+            VTECR2(:,1)   = median(VTEC_MG(1,1));
         end
         % VTECRG = smooth(Time_ref_median,VTECR2,0.5,'rloess');
         VTECRG = VTECR2;
@@ -176,7 +174,7 @@ for st = 1:length(stationlists)
         title('Rate of TEC change index (ROTI)')
 
         subplot(313) % Number of satellite
-        N_total = nansum(GNSS_nsat(1:30:end,:)');
+        N_total = sum(GNSS_nsat(1:30:end,:)',"omitnan");
         hold on
         plot(Time_ref(1:30:end),GNSS_nsat(1:30:end,:))
         plot(Time_ref(1:30:end-1),N_total,'LineWidth',2,'Color','k');
