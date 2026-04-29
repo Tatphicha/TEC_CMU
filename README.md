@@ -35,7 +35,7 @@ Here are the steps to read TEC data from MATLAB:
 2. "Run **mat2dataframe.p**y in the Python folder to get file.csv. [-- MATLAB (**convertmat2csv.m**) also works!)]"
 3. plot data from csv (an example plot for CM013160 from P'Jumbo) :point_down::point_down:
 ## 
-<img src="python/Example_plot_from_JB_CM013160.jpg" width="600">
+<img src="result/figure//Example_plot_from_JB_CM013160.jpg" width="600">
 
 
 ## 📜 License
