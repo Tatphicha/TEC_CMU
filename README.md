@@ -9,11 +9,12 @@ cd TEC_CMU
 -- To makes changes: switches to dev branch
 ```bash id="c0v2r9"
 git checkout dev
-git add .
-git commit -m "update feature"
+
 ```
 -- To upload to github
 ```bash id="c0v2r9"
+git add .
+git commit -m "update feature"
 git push
 ```
 
