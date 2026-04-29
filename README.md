@@ -1,7 +1,7 @@
 # :eyes:  Getting Started
 -- If you want to work on the terminal or Visual Studio 
 ```bash id="c0v2r9"
-git clone git clone https://github.com/Tatphicha/TEC_CMU.git
+git clone https://github.com/Tatphicha/TEC_CMU.git
 cd TEC_CMU
 ```
 :exclamation: Please work on **dev** branch :exclamation:
