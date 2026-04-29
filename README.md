@@ -1,4 +1,23 @@
-# TEC_CMU
+# :eyes:  Getting Started
+-- If you want to work on the terminal or Visual Studio 
+```bash id="c0v2r9"
+git clone git clone https://github.com/Tatphicha/TEC_CMU.git
+cd TEC_CMU
+```
+:exclamation: Please work on **dev** branch :exclamation:
+
+-- To makes changes: switches to dev branch
+```bash id="c0v2r9"
+git checkout dev
+git add .
+git commit -m "update feature"
+```
+-- To upload to github
+```bash id="c0v2r9"
+git push
+```
+
+# :zap: TEC_CMU
 :triangular_flag_on_post: This example only runs one file for now—please wait for an update. :zzz: :sleeping::sleeping:
 
 Here are the steps to read TEC data from MATLAB:
@@ -19,3 +38,6 @@ Here are the steps to read TEC data from MATLAB:
 <img src="python/Example_plot_from_JB_CM013160.jpg" width="600">
 
 
+## 📜 License
+
+© 2026 CM01 | Tatpicha n JumboAekawit
