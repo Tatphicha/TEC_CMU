@@ -2,7 +2,7 @@
 
 The Total Electron Content(TEC) calculation on MATLAB from RINEX 3.04
 Calculate TEC based on dual-frequency receiver (GPS) 
-Original by Napat Tongkasem, Somkit Sopan, Jirapoom Budtho, Nantavit Wongthodsarat
+Original by **Napat Tongkasem, Somkit Sopan, Jirapoom Budtho, Nantavit Wongthodsarat**
 
 Version 1.2 
 | Date                  |            Activities                         |
@@ -12,24 +12,24 @@ Version 1.2
 |  10/10/2022           |                Update Roti calculation           |
 |  31/06/2023          |      Develop to RINEX 3.04 with PolarRx5(SEPT) and F9P(u-blox) |
 
-1. The program need linux command. Cygwin must be installed
+The program need linux command. Cygwin must be installed
 - install Cygwin-setup-x86_64.exe (64-bit ver.)
 or download: http://cygwin.com/install.html
 
-2. Main program is ProcessTECCalculation.m
+Main program is ProcessTECCalculation.m
 
-3. We have laboratory website, you can visit
+KMILT laboratory website
 - http://iono-gnss.kmitl.ac.th/
 
-=================================================
+```bash id="c0v2r9"
 Advisor: Prof.Dr. Pornchai Supnithi
 CSSRG Laboratory
 School of Telecommunication Engineering
 Faculty of Engineering
 King Mongkut's Institute of Technology Ladkrabang
 Bangkok, Thailand
-=================================================
-Output: data 1 day 
+```
+# :chart_with_downwards_trend: Output: data 1 day 
 TEC.vertical    = Vertical Total Electron Content(VTEC)
 TEC.slant       = Slant Total Electron Content(STEC)
 TEC.withrcvbias = STEC with receiver DCB
@@ -40,8 +40,6 @@ DCB.sat         = Satellite DCB
 DCB.rcv         = Receiver DCB
 prm.elevation   = elevation angle
 ROTI            = Rate Of Change TEC Index
-
-
 
 
 # :eyes:  Getting Started for contributors
