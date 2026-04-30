@@ -196,7 +196,7 @@ def plot_tec_roti_gnss_combined(all_dfs, stname, sys_list, date_str):
 # ----------------------------------------------------
 
 SYSTEM_LIST = ['BDS', 'GAL', 'GPS', 'GLO', 'QZS']
-STATION_NAME = 'CM013160'
+STATION_NAME = 'CM010010'
 INPUT_FILE_GPS = f'csv/{STATION_NAME}_csv/{STATION_NAME}_GPS.csv'
 # STATION_NAME = INPUT_FILE_GPS.split('_')[0] 
 
