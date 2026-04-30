@@ -16,6 +16,10 @@ git add .
 git commit -m "update feature"
 git push origin dev
 ```
+-- To pull latest updates
+```bash id="c0v2r9"
+git pull origin dev
+```
 
 # :zap: TEC_CMU
 :triangular_flag_on_post: This example only runs one file for now—please wait for an update. :zzz: :sleeping::sleeping:
