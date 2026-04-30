@@ -56,10 +56,6 @@ cd TEC_CMU
 ```bash id="c0v2r9"
 git checkout -b dev origin/dev
 ```
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
 -- Make changes and upload to GitHub
 ```bash id="c0v2r9"
 git add .
