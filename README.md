@@ -21,7 +21,7 @@ Main program is ProcessTECCalculation.m
 KMILT laboratory website
 - http://iono-gnss.kmitl.ac.th/
 
-```bash id="c0v2r9"
+```text"
 Advisor: Prof.Dr. Pornchai Supnithi
 CSSRG Laboratory
 School of Telecommunication Engineering
