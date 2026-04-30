@@ -1,0 +1,11 @@
+*.22o
+*.25n
+*.gz
+*.25o
+*.26o
+*.26n
+*.csv
+*.mat
+RINEX/CRX2RNX.exe
+*.BIA
+*.pyc

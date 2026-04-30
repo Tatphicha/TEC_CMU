@@ -56,7 +56,10 @@ cd TEC_CMU
 ```bash id="c0v2r9"
 git checkout -b dev origin/dev
 ```
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
 -- Make changes and upload to GitHub
 ```bash id="c0v2r9"
 git add .
@@ -83,10 +86,10 @@ Here are the steps to read TEC data from MATLAB:
 👉 To test the program, please download the RINEX file from https://drive.google.com/drive/folders/13-18mmAL4U4alot1mx9xbqvDfGlgyGbc?usp=sharing to folder RINEX
 
 
-2. "Run **mat2dataframe.p**y in the Python folder to get file.csv. [-- MATLAB (**convertmat2csv.m**) also works!)]"
-3. plot data from csv (an example plot for CM013160 from P'Jumbo) :point_down::point_down:
+2. "Run **mat2dataframe.p**y in the result folder to get file.csv. [-- MATLAB (**convertmat2csv.m**) also works!)]"
+3. plot data from csv using 21Dgraph30.py (an example plot for CM013160 from P'Jumbo) :point_down::point_down:
 ## 
-<img src="python/Example_plot_from_JB_CM013160.jpg" width="600">
+<img src="result/figure//Example_plot_from_JB_CM013160.jpg" width="600">
 
 
 ## 📜 License

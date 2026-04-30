@@ -29,30 +29,34 @@
 
 close all;clear
 warning off
-datelist = [];
+
+% =========== Program's path ==========================
+p_path     = 'C:\Users\Jumbo\Desktop\TEC_CMU\';             % Program path
+R_path     = [p_path 'RINEX\'];     % RINEX path
+if ~isempty([p_path 'result\']);mkdir([p_path 'result\']);end
+if ~isempty([p_path 'result\matfile\']);mkdir([p_path 'result\matfile\']);end
+if ~isempty([p_path 'result\figure\']);mkdir([p_path 'result\figure\']);end
+if ~isempty([p_path 'result\daily\']);mkdir([p_path 'result\daily\']);end
+S_path     = [p_path 'result\matfile\'];       % .mat Results path
+F_path     = [p_path 'result\figure\'];        % figure and video Results path
+D_path     = [p_path 'result\daily\'];         % figure and video Results path
+DCB_path   = [p_path 'DCB\'];                   % DCB path
+path(path,[p_path 'function']);
+
+%[yr,doy] = find_doy(d);
+%doy      = num2str(doy,'%.3d');
+%yr       = num2str(yr);
+
 % date of the file (choose the date of observation file)
-outname='CM013160'
-d = datetime(2025,11,1 ); % 10 24
+outname ='CM010010'
+yr = "2026"
+doy = str2double(extractBetween(outname,5,7))
+d = datetime("1-Jan-"+yr) + (doy-1);
 stations = {'CMU01'}; % Define the station name from OBS file {'RUTI','CPN1','NUO2'}
 % stationplotlists = {'CADT','KMI6','ITC0','CSG2','CSLC','CSUM','CHAN'}; % choose stations to be plotted
 % stationplotlists = {'KMI6','RUTI'}; % choose stations to be plotted
 stationplotlists = stations;
-% =========== Program's path ==========================
-p_path     = 'D:\Tat_ss\IRI\TEC\TEC-calculation-MATLAB\r30s_v01\';             % Program path
-R_path     = [p_path 'RINEX\'];     % RINEX path
-if ~isempty([p_path 'Results\']);mkdir([p_path 'Results\']);end
-if ~isempty([p_path 'Results\matfile\']);mkdir([p_path 'Results\matfile\']);end
-if ~isempty([p_path 'Results\figure\']);mkdir([p_path 'Results\figure\']);end
-if ~isempty([p_path 'Results\daily\']);mkdir([p_path 'Results\daily\']);end
-S_path     = [p_path 'Results\matfile\'];       % .mat Results path
-F_path     = [p_path 'Results\figure\'];        % figure and video Results path
-D_path     = [p_path 'Results\daily\'];         % figure and video Results path
-DCB_path   = [p_path 'DCB\'];                   % DCB path
-path(path,[p_path 'function']);
 
-[yr,doy] = find_doy(d);
-doy      = num2str(doy,'%.3d');
-yr       = num2str(yr);
 %% check save file
 stationrecallist = checksavefiles(d,stations,S_path);
 

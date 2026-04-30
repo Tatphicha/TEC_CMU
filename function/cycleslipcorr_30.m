@@ -51,7 +51,7 @@ for PRN = PRNall
             end
         end
         %% Levelling to highest elevation angle
-        [~,ref_index] = max(elev) %nanmax(elev);                                            % Find highest elevation angle
+        [~,ref_index] = max(elev);                                            % Find highest elevation angle
         STEC = STEC + (STEC_ref(ref_index)-STEC(ref_index));                     % Levelling the STEC to the STEC at highest elevation angle
         STEC_new(index,PRN) = STEC;
     %% 2. STEC has time gap (3 hours)  
@@ -65,7 +65,7 @@ for PRN = PRNall
             ref_g  = STEC_ref(time_gap(iii)+1:time_gap(iii+1));             % group ref TEC
             % 2.2 connect the missing data
             slip1_g      = find(isnan(STEC_g));                             % Data missing (NaN)
-            if ~isempty(slip1_g) && sum(STEC_g, "omitnan") ~= 0 %change from nansum
+            if ~isempty(slip1_g) && sum(STEC_g,"omitnan") ~= 0
                 for i = 1:length(slip1_g)                                   % Correct data
                     try
                         STEC_g(slip1_g(i)) = STEC_g(slip1_g(i)-1);
@@ -87,13 +87,13 @@ for PRN = PRNall
                 end
             end
             %% Levelling to highest elevation angle (each arc)
-            [~,refg_index] = max(elev_g); %nanmax(elev_g);                                            % Find highest elevation angle
+            [~,refg_index] = max(elev_g);                                            % Find highest elevation angle
             STEC_g = STEC_g + (ref_g(refg_index)-STEC_g(refg_index));                     % Levelling the STEC to the STEC at highest elevation angle
 
             STEC(time_gap(iii)+1:time_gap(iii+1)) = STEC_g;
         end
                 %% Levelling to highest elevation angle
-        [~,ref_index] = max(elev); %nanmax(elev);                                            % Find highest elevation angle
+        [~,ref_index] = max(elev);                                            % Find highest elevation angle
         STEC = STEC + (STEC_ref(ref_index)-STEC(ref_index));                     % Levelling the STEC to the STEC at highest elevation angle
         STEC_new(index,PRN) = STEC;
     end

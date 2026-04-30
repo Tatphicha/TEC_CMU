@@ -130,7 +130,7 @@ for st = 1:size(station,2)
         nasstatus(st,4) = {0};
         disp(['Not available at ' station_name ' doy ' doy])
     end
-    if length(fileR) ==1
+    if isscalar(fileR)
         nasstatus(st,2) = {fileR(1).name};
         nasstatus(st,3) = {nan};
         nasstatus(st,4) = {1};
