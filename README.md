@@ -15,7 +15,7 @@ git checkout dev
 ```bash id="c0v2r9"
 git add .
 git commit -m "update feature"
-git push
+git push origin dev
 ```
 
 # :zap: TEC_CMU
