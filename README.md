@@ -29,7 +29,9 @@ Faculty of Engineering
 King Mongkut's Institute of Technology Ladkrabang
 Bangkok, Thailand
 ```
+
 # :chart_with_downwards_trend: Output: data 1 day 
+```text
 TEC.vertical    = Vertical Total Electron Content(VTEC)
 TEC.slant       = Slant Total Electron Content(STEC)
 TEC.withrcvbias = STEC with receiver DCB
@@ -40,7 +42,7 @@ DCB.sat         = Satellite DCB
 DCB.rcv         = Receiver DCB
 prm.elevation   = elevation angle
 ROTI            = Rate Of Change TEC Index
-
+```
 
 # :eyes:  Getting Started for contributors
 -- If you want to work on the terminal or Visual Studio 
