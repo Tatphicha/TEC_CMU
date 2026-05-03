@@ -1,8 +1,6 @@
 from scipy.io import loadmat
 import numpy as np
 import pandas as pd
-import hdf5plugin
-import h5py
 
 def mat2dataframe(matfile):
     matfile = loadmat(matfile)
@@ -20,7 +18,7 @@ def mat2dataframe(matfile):
     T_list = [None]*(len(fdata)-1)
 
     for i, sys in enumerate(fdata[:-1]):
-        print(sys)
+        # print(sys)
         subdata = data[sys].ravel()[0]
         # print(subdata.dtype.names)
         time = subdata['ind'].ravel()
@@ -41,9 +39,7 @@ def mat2dataframe(matfile):
         # print(T.head()) # inspect the first few rows of the DataFrame
         T_list[i] = T # Store the DataFrame in the list
 
-    print(*T_list, sep='\n\n')
-
-    return T_list, fdata # return DataFrames of all systems
+    return T_list, fdata[:-1] # return DataFrames of all systems
 
 if __name__ == "__main__":
     mat_dir = '../Results/matfile/2025/305/'# 'Mat_files/'

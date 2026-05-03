@@ -9,3 +9,4 @@
 RINEX/CRX2RNX.exe
 *.BIA
 *.pyc
+*.h5
