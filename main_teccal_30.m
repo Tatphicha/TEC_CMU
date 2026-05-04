@@ -31,15 +31,20 @@ close all;clear
 warning off
 
 % =========== Program's path ==========================
-p_path     = 'C:\Users\Jumbo\Desktop\TEC_CMU\';             % Program path
-R_path     = [p_path 'RINEX\'];     % RINEX path
+p_path = 'C:\Users\Jumbo\Desktop\TEC_CMU\';             % Program path
+R_path = [p_path 'RINEX\'];     % RINEX path
 if ~isempty([p_path 'result\']);mkdir([p_path 'result\']);end
-if ~isempty([p_path 'result\matfile\']);mkdir([p_path 'result\matfile\']);end
-if ~isempty([p_path 'result\figure\']);mkdir([p_path 'result\figure\']);end
-if ~isempty([p_path 'result\daily\']);mkdir([p_path 'result\daily\']);end
-S_path     = [p_path 'result\matfile\'];       % .mat Results path
-F_path     = [p_path 'result\figure\'];        % figure and video Results path
-D_path     = [p_path 'result\daily\'];         % figure and video Results path
+% mat results path
+S_path = [p_path 'result\matfile\'];
+if ~isempty(S_path);mkdir(S_path);end
+% figure and video result path
+F_path = [p_path 'result\figure\'];
+if ~isempty(F_path);mkdir(F_path);end
+D_path = [p_path 'result\daily\']
+if ~isempty(D_path);mkdir(D_path);end
+       % .mat Results path
+        % figure and video Results path
+
 DCB_path   = [p_path 'DCB\'];                   % DCB path
 path(path,[p_path 'function']);
 
@@ -48,10 +53,10 @@ path(path,[p_path 'function']);
 %yr       = num2str(yr);
 
 % date of the file (choose the date of observation file)
-outname ='CM010010'
-yr = "2026"
+outname ='CM010020'
+yr = '2026'
 doy = str2double(extractBetween(outname,5,7))
-d = datetime("1-Jan-"+yr) + (doy-1);
+d = datetime(['1-Jan-' yr]) + (doy-1);
 stations = {'CMU01'}; % Define the station name from OBS file {'RUTI','CPN1','NUO2'}
 % stationplotlists = {'CADT','KMI6','ITC0','CSG2','CSLC','CSUM','CHAN'}; % choose stations to be plotted
 % stationplotlists = {'KMI6','RUTI'}; % choose stations to be plotted

@@ -31,15 +31,20 @@ close all;clear
 warning off
 
 % =========== Program's path ==========================
-p_path     = 'C:\Users\Jumbo\Desktop\TEC_CMU\';             % Program path
-R_path     = [p_path 'RINEX\'];     % RINEX path
+p_path = 'C:\Users\Jumbo\Desktop\TEC_CMU\';             % Program path
+R_path = [p_path 'RINEX\'];     % RINEX path
 if ~isempty([p_path 'result\']);mkdir([p_path 'result\']);end
-if ~isempty([p_path 'result\matfile\']);mkdir([p_path 'result\matfile\']);end
-if ~isempty([p_path 'result\figure\']);mkdir([p_path 'result\figure\']);end
-if ~isempty([p_path 'result\daily\']);mkdir([p_path 'result\daily\']);end
-S_path     = [p_path 'result\matfile\'];       % .mat Results path
-F_path     = [p_path 'result\figure\'];        % figure and video Results path
-D_path     = [p_path 'result\daily\'];         % figure and video Results path
+% mat results path
+S_path = [p_path 'result\matfile\'];
+if ~isempty(S_path);mkdir(S_path);end
+% figure and video result path
+F_path = [p_path 'result\figure\'];
+if ~isempty(F_path);mkdir(F_path);end
+D_path = [p_path 'result\daily\']
+if ~isempty(D_path);mkdir(D_path);end
+       % .mat Results path
+        % figure and video Results path
+
 DCB_path   = [p_path 'DCB\'];                   % DCB path
 path(path,[p_path 'function']);
 
@@ -48,39 +53,39 @@ path(path,[p_path 'function']);
 %yr       = num2str(yr);
 
 % date of the file (choose the date of observation file)
-yr = "2026"
-filelist = string({dir("RINEX\*.26o").name});
-parfor index = 1:length(filelist)
+yr = '2026'
+filelist = char({dir("RINEX\*.26o").name});
+parfor index = 1:size(filelist,1)
     
-    [~, outname, ~] = fileparts(filelist(index));
-    % outname "CM010010"
-    doy = str2double(extractBetween(outname,5,7))
-    d = datetime("1-Jan-"+yr) + (doy-1);
-    stations = {extractBefore(outname,5)};
-    stationplotlists = stations;
+    [~, outname, ~] = fileparts(filelist(index,:));
+    % outname = char(outname); %convert to single-quote string (array of char)
+    doy = str2double(extractBetween(outname,5,7));
+    d = datetime(['1-Jan-' yr]) + (doy-1);
+    station = extractBefore(outname,5);
     
     disp(outname)
-    disp(stations)
+    disp(station)
+    disp(d)
     
-    % %% check save file
-    % stationrecallist = checksavefiles(d,stations,S_path);
-    % 
-    % if ~isempty(stationrecallist)
-    %     %% [can skip this] Copy files from NAS (server 1) (need to connect the same LAN)
-    %     % nasstatus      = dlRNX3fromNAS(d,stationrecallist,R_path);
-    %     delete([R_path '*n']) %% remove nav file, use nav from CDDIS
-    %     %% Download NAV from CDDIS [ftp://gdc.cddis.eosdis.nasa.gov/pub/gps/data/daily/2024/brdc]
-    %     navstatus      = getgnssnav(d,R_path);
-    %     %% Download DCB from CDDIS [ftp://gdc.cddis.eosdis.nasa.gov/pub/gps/products/mgex/dcb/]
-    %     DCB            = getgnssdcb(d,DCB_path);
-    %     %% Check RINEX file
-    %     file_rcvstatus = checkRINEX(d,R_path);
-    %     %% Read RINEX file and Calculate TEC/ROTI and save in .mat file
-    %     cal_status     = rnx2tec30(file_rcvstatus,d,DCB,R_path,S_path,outname);
-    % end
+    % check save file
+    % stationcall = checksavefiles(d,station,S_path);
+
+    if ~exist([S_path outname '.mat'],"file")
+        % [can skip this] Copy files from NAS (server 1) (need to connect the same LAN)
+        % nasstatus      = dlRNX3fromNAS(d,stationrecallist,R_path);
+        % delete([R_path '*n']) %% remove nav file, use nav from CDDIS
+        % Download NAV from CDDIS [ftp://gdc.cddis.eosdis.nasa.gov/pub/gps/data/daily/2024/brdc]
+        navstatus      = getgnssnav(d,R_path);
+        % Download DCB from CDDIS [ftp://gdc.cddis.eosdis.nasa.gov/pub/gps/products/mgex/dcb/]
+        DCB            = getgnssdcb(d,DCB_path);
+        % Check RINEX file
+        file_rcvstatus = checkRINEX(d,R_path);
+        % Read RINEX file and Calculate TEC/ROTI and save in .mat file
+        cal_status     = rnx2tec30(file_rcvstatus,d,DCB,R_path,S_path,outname);
+    end
 
 end
-% mat21Dgraph30(d,stationplotlists,S_path,F_path)
+% mat21Dgraph30(d,station,S_path,F_path)
 
 %% ROTI keogram
 % [TIMES, IND, vTEC, ROTI, ipplat, ipplon] = mat2matrix(d,S_path);
